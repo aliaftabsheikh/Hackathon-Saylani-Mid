@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- Css File -->
+    <link rel="stylesheet" href="./Css/style.css">
+
+    <!-- Bootstrap Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <!-- Firebase Script -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Login And Signup form -->
+    <form>
+        <form>
+            <section class="h-100">
+                <div id="login_box" class="container py-12">
+                    <div  class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col">
+                            <div class="card card-registration my-5">
+                                <div class="row g-0">
+
+                                    <div class="col-xl-12">
+                                        <div class="card-body p-md-4 text-black">
+                                            <h1
+                                                class="mb-3 text-capitalize d-flex justify-content-center text-muted fw-bold">
+                                                pop a ballon</h1>
+                                            <h3 class="mb-5 text-uppercase fw-bold d-flex justify-content-center">Login
+                                            </h3>
+
+                                            <div class="row">
+                                                <div class="form-outline mb-4">
+                                                    <input type="text" id="l-email"
+                                                        class="form-control rounded-0 form-control-lg" required />
+                                                    <label class="form-label" for="loginnameoremail">Email
+                                                        address</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-outline mb-1">
+                                                <input type="password" id="l-password"
+                                                    class="form-control rounded-0 form-control-lg" required />
+                                                <label class="form-label" for="loginpassword">Password</label>
+                                            </div>
+
+                                            
+
+                                            <div
+                                                class="d-flex justify-content-start pt-1 d-flex justify-content-center">
+                                                <button type="button" onclick="login()"
+                                                    class="btn btn-primary shadow-remove rounded-0 text-light btn-lg">
+                                                    Login
+                                                </button>&nbsp;
+
+                                                <button type="button" onclick="signup()"
+                                                    class="btn btn-primary shadow-remove rounded-0 text-light btn-lg">
+                                                    SignUp
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!-- Welcome Box -->
+                <div id="welcome_box">
+                    Welcome User: <span id="user"></span>
+                    <div>
+                        <div class="logged-in-info">
+                            Last Logged in at:
+                            <span id="lastLoggedIn"></span>
+                        </div>
+                        <div>
+                        <button onclick="logout()" class="btn btn-primary">Logout</button>
+
+                        <!-- pop baloon -->
+
+                        <div class="wrapper">
+                            <h1 class="head-1">Pop the balloons by moving</br>your mouse over them</h1>
+                            <div id="yay-no-balloons"><span class="blue">Wow!</span> All balloons popped!</div>
+                            <div id="balloon-gallery">
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                                <div class="balloon"></div>
+                            </div>
+                    
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </form>
+        </section>
+    </form>
+
+    <!-- Firebase Config -->
+
+    <script type="module">
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDJehB2POc8U3IsEg2XAgIXzSwlQ8g0ZiI",
+            authDomain: "saylani-batch-7-29bde.firebaseapp.com",
+            projectId: "saylani-batch-7-29bde",
+            storageBucket: "saylani-batch-7-29bde.appspot.com",
+            messagingSenderId: "860447252452",
+            appId: "1:860447252452:web:e6eb42b9dd745a4f8171f1",
+            measurementId: "G-YJ43KM054N"
+        };
+
+        // Initialize Firebase
+
+        firebase.initializeApp(firebaseConfig);
+        const firestore = firebase.firestore();
+
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                console.log(user);
+                document.getElementById("user").innerHTML = user.email;
+                document.getElementById("login_box").style.display = "none";
+                document.getElementById("welcome_box").style.display = "block";
+            } else {
+                document.getElementById("login_box").style.display = "block";
+                document.getElementById("welcome_box").style.display = "none";
+            }
+        });
+    </script>
+
+<!-- Baloon JS Link-->
+
+<script src="./Js/games.js"></script>
+<script src="./Js/auth.js"></script>
+</body>
+
+</html>

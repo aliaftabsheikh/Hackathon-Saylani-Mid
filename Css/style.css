@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+*{
+ font-family: 'Poppins';
+}
+
+#welcome_box{
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0px 0px 30px 0px;
+   
+}
+
+#welcome_box span{
+    font-weight: normal;
+    color: rgb(20, 17, 228);
+    margin-left: 5px;
+
+}
+
+
+/* Baloon Css */
+
+body{
+    font-family:"Poppins", sans-serif;
+    padding: 30px;
+    background:#ededed;
+}
+
+.wrapper{
+    max-width: 690px;
+    margin: 0 auto;
+}
+
+.blue {
+    color:#3f7abe;
+}
+
+h1{
+    margin: auto;
+    color: #08a3d9;
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #000380;
+    text-transform: uppercase;
+}
+.head-1{
+    margin-top: 38px;
+}
+#balloon-gallery div{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    background: #ff3300;
+    height: 85px;
+    width: 85px;
+    text-align: center;
+    color: #ff3300;
+    font-size: 40px;
+    font-family: sans-serif, arial;
+    border-radius: 100%;
+    margin-top: 15px;
+    display: inline-block;
+    margin-left: 75px;
+    margin: 8.5px 40px 5.5px 33px;;
+}
+
+#balloon-gallery div:nth-child(3n){
+    background: #ffce00;
+    color: #ffce00;
+}
+
+#balloon-gallery div:nth-child(3n-1){
+    background:#3f7abe;
+    color:#3f7abe;
+}
+
+#balloon-gallery div:nth-child(5n){
+    background:#8e7a8e;
+    color:#8e7a8e;
+}
+
+#balloon-gallery div:nth-child(13){
+    background:#8e7a8e;
+    color:#8e7a8e;
+}
+
+#balloon-gallery div:nth-child(10n){
+    background:#ff3300;
+    color: #ff3300;
+}
+
+#balloon-gallery div:nth-child(4n){
+    clear:right;
+}
+
+#yay-no-balloons {
+    display:none;
+    color:#ff3300;
+    font-size:100px;
+}
